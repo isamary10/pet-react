@@ -1,12 +1,10 @@
 import React from "react";
-import Pet from "./components/Pet/Pet";
-import PetCadastro from "./components/PetCadastro/PetCadastro";
+import ListaPet from "./components/ListaPet/ListaPet";
 
 export default function App() {
   return (
     <>
-      <PetCadastro/>
-      <Pet />
+      <ListaPet/>
     </>
   )
 }
