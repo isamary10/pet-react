@@ -15,7 +15,7 @@ export default function ListaPet(){
     tamanho: 'Porte Pequeno',
     dono: 'Agata Ferraz',
     telefone: '1198754-2134',
-    obs: 'Cachorro carinhoso que ama brincar'
+    obs: 'Cachorro carinhoso e que ama brincar'
   }])
 
   const [nPet, setNPet] = useState({
