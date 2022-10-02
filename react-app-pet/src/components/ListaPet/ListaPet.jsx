@@ -29,7 +29,23 @@ export default function ListaPet(){
     obs: ''
   })
 
-  const addPet =e=>{
+  async function readImage(file) {
+    return new Promise((resolve, reject) => {
+      if (file.type && !file.type.startsWith("image/")) {
+        reject(
+          new Error(`O arquivo não é uma imagem. ${file.type} ${file.name}`)
+        );
+        return;
+      }
+      const reader = new FileReader();
+      reader.addEventListener("load", (event) => {
+        resolve(event.target.result);
+      });
+      reader.readAsDataURL(file);
+    });
+  }
+
+  const addPet = (e)=>{
     e.preventDefault()
     setNPet({
       nome: '',
@@ -44,95 +60,100 @@ export default function ListaPet(){
     setPet([...pet, nPet])
   }
 
-  const captura= e=>{
+  const captura = async (e) =>{
     const {value, name} = e.target
     if(name === "nome"){
       setNPet({
-        "nome":value,
-        "imagem":nPet.imagem,
-        "idade":nPet.idade,
-        "raca":nPet.raca,
-        "tamanho":nPet.tamanho,
-        "dono":nPet.dono,
-        "telefone":nPet.telefone,
-        "obs":nPet.obs
+        nome:value,
+        imagem:nPet.imagem,
+        idade:nPet.idade,
+        raca:nPet.raca,
+        tamanho:nPet.tamanho,
+        dono:nPet.dono,
+        telefone:nPet.telefone,
+        obs:nPet.obs
       })
     }else if(name === "imagem"){
-      setNPet({
-        "nome":nPet.nome,
-        "imagem":value,
-        "idade":nPet.idade,
-        "raca":nPet.raca,
-        "tamanho":nPet.tamanho,
-        "dono":nPet.dono,
-        "telefone":nPet.telefone,
-        "obs":nPet.obs
-      })
+      try{
+        const image = await readImage(e.target.files[0]);
+        setNPet({
+          nome:nPet.nome,
+          imagem:image,
+          idade:nPet.idade,
+          raca:nPet.raca,
+          tamanho:nPet.tamanho,
+          dono:nPet.dono,
+          telefone:nPet.telefone,
+          obs:nPet.obs
+        })
+      } catch (e){
+        alert(e.message);
+      }
     }else if(name === "idade"){
       setNPet({
-        "nome":nPet.nome,
-        "imagem":nPet.imagem,
-        "idade":value,
-        "raca":nPet.raca,
-        "tamanho":nPet.tamanho,
-        "dono":nPet.dono,
-        "telefone":nPet.telefone,
-        "obs":nPet.obs,
+        nome:nPet.nome,
+        imagem:nPet.imagem,
+        idade:value,
+        raca:nPet.raca,
+        tamanho:nPet.tamanho,
+        dono:nPet.dono,
+        telefone:nPet.telefone,
+        obs:nPet.obs,
       })
     }else if(name === "raca"){
       setNPet({
-        "nome":nPet.nome,
-        "imagem":nPet.imagem,
-        "idade":nPet.idade,
-        "raca":value,
-        "tamanho":nPet.tamanho,
-        "dono":nPet.dono,
-        "telefone":nPet.telefone,
-        "obs":nPet.obs,
+        nome:nPet.nome,
+        imagem:nPet.imagem,
+        idade:nPet.idade,
+        raca:value,
+        tamanho:nPet.tamanho,
+        dono:nPet.dono,
+        telefone:nPet.telefone,
+        obs:nPet.obs,
       })
     }else if(name === "tamanho"){
       setNPet({
-        "nome":nPet.nome,
-        "imagem":nPet.imagem,
-        "idade":nPet.idade,
-        "raca":nPet.raca,
-        "tamanho":value,
-        "dono":nPet.dono,
-        "telefone":nPet.telefone,
-        "obs":nPet.obs,
+        nome:nPet.nome,
+        imagem:nPet.imagem,
+        idade:nPet.idade,
+        raca:nPet.raca,
+        tamanho:value,
+        dono:nPet.dono,
+        telefone:nPet.telefone,
+        obs:nPet.obs,
       })
     }else if(name === "dono"){
       setNPet({
-        "nome":nPet.nome,
-        "imagem":nPet.imagem,
-        "idade":nPet.idade,
-        "raca":nPet.raca,
-        "tamanho":nPet.tamanho,
-        "dono":value,
-        "telefone":nPet.telefone,
-        "obs":nPet.obs,
+        nome:nPet.nome,
+        imagem:nPet.imagem,
+        idade:nPet.idade,
+        raca:nPet.raca,
+        tamanho:nPet.tamanho,
+        dono:value,
+        telefone:nPet.telefone,
+        obs:nPet.obs,
       })
     }else if(name === "telefone"){
       setNPet({
-        "nome":nPet.nome,
-        "imagem":nPet.imagem,
-        "idade":nPet.idade,
-        "raca":nPet.raca,
-        "tamanho":nPet.tamanho,
-        "dono":nPet.dono,
-        "telefone":value,
-        "obs":nPet.obs,
+        nome:nPet.nome,
+        imagem:nPet.imagem,
+        idade:nPet.idade,
+        raca:nPet.raca,
+        tamanho:nPet.tamanho,
+        dono:nPet.dono,
+        telefone:value,
+        obs:nPet.obs,
       })
     }else if(name === "obs"){
       setNPet({
-        "nome":nPet.nome,
-        "imagem":nPet.imagem,
-        "idade":nPet.idade,
-        "raca":nPet.raca,
-        "tamanho":nPet.tamanho,
-        "dono":nPet.dono,
-        "telefone":nPet.telefone,
-        "obs":value,
+        nome:nPet.nome,
+        imagem:nPet.imagem,
+        idade:nPet.idade,
+        raca:nPet.raca,
+        tamanho:nPet.tamanho,
+        dono:nPet.dono,
+        telefone:nPet.telefone,
+        obs:value,
       })
     }
   }
@@ -144,7 +165,7 @@ export default function ListaPet(){
       />
       <div className="pet">
         {pet.map((p,i)=>(
-          <Pet 
+          <Pet
             key={i}
             nome={p.nome}
             imagem={p.imagem}

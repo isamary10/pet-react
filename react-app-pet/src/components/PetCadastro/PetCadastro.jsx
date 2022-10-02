@@ -13,7 +13,7 @@ export default function PetCadastro(props){
         </div>
         <div>
           <label>Imagem do Pet</label>
-          <input type="file" name="imagem" value={props.pet.imagem} onChange={props.digit} />
+          <input type="file" name="imagem" value={""} onChange={props.digit} />
         </div>
         <div>
           <label>Idade</label>

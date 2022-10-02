@@ -1,7 +1,12 @@
 import React from "react";
+import { useEffect } from "react";
 import { DivPet } from '../../style/styled'
 
 export default function Pet(props){
+  useEffect(() => {
+    console.log(props);
+  }, []);
+
     return(
       <DivPet>
         <div className="infoPet">
