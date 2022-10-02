@@ -10,7 +10,6 @@ export const DivLista = styled.div`
 }
 `
 export const DivPet = styled.div`
-
 `
 
 export const DivForm = styled.div`
