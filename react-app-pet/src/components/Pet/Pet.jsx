@@ -4,15 +4,31 @@ import { DivPet } from '../../style/styled'
 export default function Pet(props){
     return(
       <DivPet>
-        <h2>{props.nome}</h2>
-        {/* <img src="{props.foto}" alt="Imagem do Pet" /> */}
-        <p>Idade: {props.idade}</p>
-        <p>Raça: {props.raca}</p>
-        <p>Tamanho: {props.tamanho}</p>
-        <p>Nome do dono: {props.dono}</p>
-        <p>Telefone do dono: {props.telefone}</p>
-        <p>Observações: {props.obs}</p>
+        <div className="infoPet">
+          <h2>{props.nome}</h2>
+        </div>
+        <div className="infoPet">
+          <img src="{props.foto}" alt="Imagem do Pet" />
+        </div>
+        <div className="infoPet">
+          <p> <span>Idade:</span> {props.idade}</p>
+        </div>
+        <div className="infoPet">
+          <p> <span>Raça:</span> {props.raca}</p>
+        </div>
+        <div className="infoPet">
+          <p> <span>Tamanho:</span> {props.tamanho}</p>
+        </div>
+        <div className="infoPet">
+          <p> <span>Nome do dono:</span> {props.dono}</p>
+        </div>
+        <div className="infoPet">
+          <p> <span>Telefone do dono:</span> {props.telefone}</p>
+        </div>
+        <div className="infoPet">
+          <p> <span className="obs">Observações:</span> {props.obs}</p>
+        </div>
       </DivPet>
     )
-  
+
 }
