@@ -5,15 +5,15 @@ import { DivForm } from '../../style/styled';
 export default function PetCadastro(props){
   return(
     <DivForm>
-      <h1>Adicionar Pet</h1>
-      <form method="post" onSubmit={props.addPet}>
+      <form className="" method="post" onSubmit={props.addPet}>
+        <p>Formuário Pet</p>
         <div>
           <label>Nome</label>
           <input type="text" name="nome" value={props.pet.nome} onChange={props.digit}/>
         </div>
         <div>
           <label>Imagem do Pet</label>
-          <input type="file" name="foto" multiple accept="image/* "onChange={props.digit} />
+          <input type="file" name="imagem" value={props.pet.imagem} onChange={props.digit} />
         </div>
         <div>
           <label>Idade</label>
