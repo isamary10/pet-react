@@ -13,7 +13,7 @@ export default function ListaPet(){
     tamanho: 'Porte Pequeno',
     dono: 'Isa',
     telefone: '1198754-2134',
-    obs: 'Cachorro carinho que amanha brincar'
+    obs: 'Cachorro carinhoso que ama brincar'
   }])
 
   const [nPet, setNPet] = useState({
@@ -127,18 +127,20 @@ export default function ListaPet(){
       <PetCadastro addPet={addPet} pet={nPet}
         digit={captura}
       />
-      {pet.map((p,i)=>(
-        <Pet 
-          key={i}
-          nome={p.nome}
-          idade={p.idade}
-          raca={p.raca}
-          tamanho={p.tamanho}
-          dono={p.dono}
-          telefone={p.telefone}
-          obs={p.obs}
-        />
-      ))}
+      <div className="pet">
+        {pet.map((p,i)=>(
+          <Pet 
+            key={i}
+            nome={p.nome}
+            idade={p.idade}
+            raca={p.raca}
+            tamanho={p.tamanho}
+            dono={p.dono}
+            telefone={p.telefone}
+            obs={p.obs}
+          />
+        ))}
+      </div>
     </DivLista>
   )
 }
