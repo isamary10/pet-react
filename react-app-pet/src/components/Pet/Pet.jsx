@@ -8,7 +8,7 @@ export default function Pet(props){
           <h2>{props.nome}</h2>
         </div>
         <div className="infoPet">
-          <img src="{props.foto}" alt="Imagem do Pet" />
+          <img src={props.imagem} alt="Imagem do Pet" />
         </div>
         <div className="infoPet">
           <p> <span>Idade:</span> {props.idade}</p>
