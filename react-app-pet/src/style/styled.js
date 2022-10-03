@@ -1,6 +1,9 @@
 import styled from "styled-components";
+import img from "../img/bg_css.jpg"
 
 export const DivLista = styled.div`
+background-image: url(${img});
+background-posiition: cover;
 .pet{
   display: flex;
   justify-content: center;
@@ -13,12 +16,13 @@ export const DivPet = styled.div`
 background-color: #e2e2e2;
 border-radius: 10px;
 width: 30vw;
-height: 45vw;
+height: 55vw;
 margin: auto;
 margin-bottom: 2vw;
   box-shadow: 2px 3px 5px rgba(50, 50, 50, 0.77);
 img{
-  width: 25vw;
+  width: 26vw;
+  height: 25vw;
   border-radius: 10px;
 }
 .infoPet{
